@@ -1,41 +1,42 @@
-// Select color input
-// Select size input
-var colorPick = document.getElementById('colorPicker')
-var sendBtn = document.getElementById('send');
-var table = document.getElementById('pixelCanvas');
+//globals
+let colorPick = document.getElementById('colorPicker')
+let sendBtn = document.getElementById('send');
+let table = document.getElementById('pixelCanvas');
+let row_input = document.getElementById('inputHeight');
+let cell_input = document.getElementById('inputWidth');
 
 
-sendBtn.addEventListener('click', function(evt){
+sendBtn.addEventListener('click', function(evt) {
 
-evt.preventDefault();
+    evt.preventDefault();
 
-var hight = document.getElementById('inputHeight').value;
-var width = document.getElementById('inputWidth').value;
-makeGrid(hight,width)
+    let row_count = row_input.value;
+    let cell_count = cell_input.value;
+
+    makeGrid(row_count, cell_count)
 
 });
 
 
 
 // event delegation 
-function colorGrid(evt){
-evt.target.style.backgroundColor = colorPick.value
+function colorGrid(evt) {
+    evt.target.style.backgroundColor = colorPick.value
 }
 
-table.addEventListener('click',colorGrid)
-
+table.addEventListener('click', colorGrid)
 
 function makeGrid(hight, width) {
 
 
-    for (var i = 0; i < hight; i++) {
+    for (let i = 0; i < hight; i++) {
 
-        var row = table.insertRow(i)
+        let row = table.insertRow(i)
 
-        for (var j = 0; j < width; j++) {
+        for (let j = 0; j < width; j++) {
 
-            var cell = row.insertCell(j)
- 
+            let cell = row.insertCell(j)
+
 
         }
 
@@ -43,30 +44,3 @@ function makeGrid(hight, width) {
     }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
